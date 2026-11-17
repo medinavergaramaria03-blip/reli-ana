@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Séneca LOMLOE — Guía de Profesor Particular (Religión Infantil y 1º-2º Primaria)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --surface-2: #1f242d;
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f3f1ec;
+      --muted: #a6aab5;
+      --gold: #d9a760;
+      --gold-soft: rgba(217, 167, 96, 0.14);
+      --teal: #5cb8a5;
+      --teal-soft: rgba(92, 184, 165, 0.14);
+      --rose: #e07a7a;
+      --radius: 16px;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(15, 17, 21, 0.85);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--gold);
+    }
+    .brand span.badge {
+      background: var(--gold-soft);
+      border: 1px solid rgba(217, 167, 96, 0.35);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .tab-btn.active {
+      color: #0f1115;
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      max-width: 1240px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+    }
+    .hero-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 360px;
+      display: flex;
+      align-items: flex-end;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .hero-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.62) contrast(1.06);
+    }
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 40px;
+      background: linear-gradient(180deg, transparent 0%, rgba(15,17,21,0.92) 75%);
+    }
+    .hero-tag {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+    .hero-overlay h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+      max-width: 820px;
+    }
+    .hero-overlay p {
+      color: #d6d3cb;
+      max-width: 700px;
+      font-size: 1rem;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1240px;
+      margin: 32px auto 80px;
+      padding: 0 24px;
+    }
+    .section { display: none; animation: fadeIn 0.28s ease; }
+    .section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .section-header h2 { font-size: 2.1rem; color: var(--text); }
+    .section-header p { color: var(--muted); max-width: 660px; }
+
+    /* Presentation Deck (ARRI Alexa Pro Style) */
+    .deck-shell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .slide-stage {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      min-height: 490px;
+    }
+    @media (max-width: 900px) { .slide-stage { grid-template-columns: 1fr; } }
+    .slide-media {
+      position: relative;
+      background: #0a0c0f;
+      min-height: 320px;
+      overflow: hidden;
+    }
+    .slide-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .slide-media .cinematic-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(15, 17, 21, 0.78);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .slide-content {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .slide-kicker {
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .slide-content h3 { font-size: 2rem; line-height: 1.12; margin: 6px 0 12px; }
+    .slide-bullets {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .slide-bullets li {
+      background: var(--surface-2);
+      border-left: 3px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.92rem;
+    }
+    .script-box {
+      background: rgba(92, 184, 165, 0.08);
+      border: 1px solid rgba(92, 184, 165, 0.25);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.85rem;
+      color: #d6efe9;
+    }
+    .script-box strong { color: var(--teal); display: block; margin-bottom: 3px; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: var(--surface-2);
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-primary { background: var(--gold); color: #0f1115; border-color: var(--gold); }
+    .btn-primary:hover { background: #e5b772; color: #0f1115; }
+
+    /* Step-by-Step Tutor */
+    .tutor-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 860px) { .tutor-grid { grid-template-columns: 1fr; } }
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .step-item {
+      text-align: left;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .step-item.active {
+      background: var(--gold-soft);
+      border-color: var(--gold);
+      color: var(--text);
+    }
+    .step-item small { display: block; font-size: 0.74rem; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+    .tutor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .tutor-card img.screenshot {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin: 18px 0;
+      cursor: zoom-in;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    @media (max-width: 680px) { .compare-grid { grid-template-columns: 1fr; } }
+    .compare-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .compare-box h4 { color: var(--gold); margin-bottom: 6px; font-size: 1.05rem; }
+
+    /* Flashcards */
+    .flash-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 22px;
+    }
+    .flashcard {
+      perspective: 1200px;
+      height: 360px;
+      cursor: pointer;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+    .flash-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+    }
+    .flash-front img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .flash-front-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+    .flash-front-body h4 { font-size: 1.25rem; line-height: 1.2; }
+    .flash-hint { font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+    .flash-back {
+      transform: rotateY(180deg);
+      padding: 24px;
+      justify-content: space-between;
+      background: linear-gradient(145deg, #1b2029, #13161c);
+      border-color: rgba(217, 167, 96, 0.35);
+    }
+    .flash-back h4 { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; }
+    .flash-back p { font-size: 0.92rem; color: #e2dfd7; }
+
+    /* Mind Maps */
+    .mindmap-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+    .mindmap-board {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .mm-root {
+      display: inline-block;
+      background: var(--gold);
+      color: #0f1115;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      font-size: 1rem;
+    }
+    .mm-branches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .mm-node {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .mm-node img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .mm-node-body { padding: 16px; }
+    .mm-node-body h4 { color: var(--teal); margin-bottom: 8px; font-size: 1.15rem; }
+    .mm-node-body ul { padding-left: 18px; font-size: 0.87rem; color: #d7d4cc; display: grid; gap: 5px; }
+
+    /* Resources */
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .res-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      overflow: hidden;
+    }
+    .res-card img.thumb {
+      width: calc(100% + 44px);
+      margin: -22px -22px 16px -22px;
+      height: 150px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+      display: block;
+    }
+    .res-card h4 { color: var(--gold); margin-bottom: 8px; font-size: 1.25rem; }
+    .res-card a { color: var(--teal); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .res-card a:hover { text-decoration: underline; }
+
+    /* Modal zoom for screenshots */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.88);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal.open { display: flex; }
+    .modal img { max-width: 95vw; max-height: 90vh; border-radius: 12px; border: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <span>SÉNECA · LOMLOE</span>
+        <span class="badge">Profesor Particular · Religión</span>
+      </div>
+      <nav>
+        <button class="tab-btn active" onclick="showTab('presentacion', this)">1. Presentación</button>
+        <button class="tab-btn" onclick="showTab('guia', this)">2. Guía Paso a Paso</button>
+        <button class="tab-btn" onclick="showTab('flashcards', this)">3. Flashcards</button>
+        <button class="tab-btn" onclick="showTab('mapas', this)">4. Mapas Mentales</button>
+        <button class="tab-btn" onclick="showTab('recursos', this)">5. NotebookLM &amp; Recursos</button>
+        <button class="tab-btn" onclick="showTab('reli-ana', this)">6. Reli Ana (3 Años)</button>
+        <button class="tab-btn" onclick="showTab('enlaces', this)">7. Enlaces Útiles</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-card">
+      <img src="assets/seneca_hero.jpg" alt="Aula de Religión en Andalucía con luz natural estilo ARRI Alexa Pro">
+      <div class="hero-overlay">
+        <span class="hero-tag">De lo General a lo Específico · Infantil + 1º y 2º Primaria</span>
+        <h1>Domina el Cuaderno de Séneca LOMLOE y graba tus clases con claridad</h1>
+        <p>Tu entorno formativo completo: presentación visual estructurada para tus grabaciones, guía paso a paso con pantallazos reales (sin datos de alumnado), flashcards de estudio y mapas mentales visuales.</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- 1. PRESENTACIÓN -->
+    <section id="presentacion" class="section active">
+      <div class="section-header">
+        <div>
+          <h2>Presentación Estructurada de Séneca LOMLOE</h2>
+          <p>Diseñada de lo más general a lo específico con guion de locución listo para que grabes tus clases o tutoriales de Religión en Infantil y Primer Ciclo de Primaria.</p>
+        </div>
+        <div id="slide-counter" style="color: var(--gold); font-weight: 700;">Diapositiva 1 / 6</div>
+      </div>
+
+      <div class="deck-shell">
+        <div class="slide-stage">
+          <div class="slide-media">
+            <img id="slide-img" src="assets/seneca_hero.jpg" alt="Slide visual">
+            <span class="cinematic-badge" id="slide-badge">Bloque 1 · General</span>
+          </div>
+          <div class="slide-content">
+            <div>
+              <div class="slide-kicker" id="slide-kicker">BLOQUE 1 · VISIÓN GENERAL</div>
+              <h3 id="slide-title">¿Qué es Séneca LOMLOE y cómo se organiza?</h3>
+              <ul class="slide-bullets" id="slide-bullets"></ul>
+            </div>
+            <div class="script-box">
+              <strong>Guion sugerido para grabar tu clase / vídeo</strong>
+              <span id="slide-script"></span>
+            </div>
+          </div>
+        </div>
+        <div class="deck-controls">
+          <button class="btn" onclick="prevSlide()">← Anterior</button>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;" id="slide-dots"></div>
+          <button class="btn btn-primary" onclick="nextSlide()">Siguiente →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. GUÍA PASO A PASO -->
+    <section id="guia" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Tu Profesor Particular: Guía Paso a Paso en Séneca</h2>
+          <p>Haz clic en cada paso para ver la ruta exacta en Séneca, su pantallazo real y la diferencia práctica entre <strong>Infantil</strong> y <strong>1º-2º de Primaria</strong>.</p>
+        </div>
+      </div>
+
+      <div class="tutor-grid">
+        <div class="step-list" id="step-list"></div>
+        <div class="tutor-card" id="tutor-detail"></div>
+      </div>
+    </section>
+
+    <!-- 3. FLASHCARDS -->
+    <section id="flashcards" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Flashcards Visuales de Estudio</h2>
+          <p>Haz clic en cada tarjeta para girarla y repasar los conceptos clave de Séneca LOMLOE aplicados a Religión.</p>
+        </div>
+      </div>
+      <div class="flash-grid" id="flash-grid"></div>
+    </section>
+
+    <!-- 4. MAPAS MENTALES -->
+    <section id="mapas" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Mapas Mentales con Pantallazos y Fotografías</h2>
+          <p>Elige el mapa mental que quieras visualizar: arquitectura general de Séneca, flujo específico en Infantil o flujo en 1º y 2º de Primaria.</p>
+        </div>
+      </div>
+      <div class="mindmap-tabs">
+        <button class="btn btn-primary" onclick="renderMindMap('general', this)">Mapa 1: Arquitectura General Séneca</button>
+        <button class="btn" onclick="renderMindMap('infantil', this)">Mapa 2: Religión Infantil (3-5 años)</button>
+        <button class="btn" onclick="renderMindMap('primaria', this)">Mapa 3: Religión 1º y 2º Primaria</button>
+      </div>
+      <div class="mindmap-board" id="mindmap-board"></div>
+    </section>
+
+    <!-- 5. RECURSOS -->
+    <section id="recursos" class="section">
+      <div class="section-header">
+        <div>
+          <h2>NotebookLM, Google Vids y Manuales Oficiales</h2>
+          <p>Todos tus materiales centralizados para consultar dudas en cualquier momento.</p>
+        </div>
+      </div>
+      <div class="res-grid">
+        <div class="res-card">
+          <h4>Cuaderno en NotebookLM</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Contiene 15 videotutoriales actualizados de YouTube + el PDF oficial del BOE del Currículo de Religión Católica LOMLOE.</p>
+          <a href="https://notebook.google.com/notebook/1a9ef666-6b09-4f16-9e93-ce3a7f35dcd1" target="_blank">Abrir tu NotebookLM →</a>
+        </div>
+        <div class="res-card">
+          <h4>Currículo Oficial Religión (BOE LOMLOE)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Resolución de 21 de junio de 2022 con competencias específicas, criterios de evaluación y saberes básicos de Infantil y Primaria.</p>
+          <a href="manuales-pdf/BOE_Curriculo_Religion_Catolica_LOMLOE.pdf" target="_blank">Abrir PDF descargado →</a>
+        </div>
+        <div class="res-card">
+          <h4>Blog Oficial Séneca Profesorado</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Guías e infografías oficiales de la Consejería de Desarrollo Educativo (Junta de Andalucía).</p>
+          <a href="https://blogsaverroes.juntadeandalucia.es/senecaprofesorado/el-cuaderno-de-clase/" target="_blank">Visitar Averroes Séneca →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. RELI ANA 3 AÑOS (INCRUSTADA) -->
+    <section id="reli-ana" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Mi Web de Reli Ana · 3 Años</h2>
+          <p>Tu página web integrada directamente dentro del entorno para tener tus recursos de Religión de 3 años siempre a mano.</p>
+        </div>
+        <a class="btn btn-primary" href="https://manolomalaga.github.io/reli-ana-3-anos/" target="_blank" style="text-decoration:none;">Abrir en nueva pestaña ↗</a>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; box-shadow:var(--shadow);">
+        <iframe
+          src="https://manolomalaga.github.io/reli-ana-3-anos/"
+          title="Reli Ana 3 Años"
+          style="width:100%; height:78vh; min-height:600px; border:0; display:block; background:#fff;"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- 7. ENLACES ÚTILES (SÉNECA + RELI MÁLAGA) -->
+    <section id="enlaces" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Enlaces Útiles: Séneca y Religión en Málaga</h2>
+          <p>Directorio seleccionado de portales oficiales para dominar Séneca, formarte en el CEP de Málaga y preparar tus clases de Religión en Infantil y Primaria.</p>
+        </div>
+      </div>
+
+      <h3 style="color:var(--gold); font-size:1.55rem; margin:12px 0 14px;">A. Aprender Séneca y Formación (Junta de Andalucía · CEP Málaga)</h3>
+      <div class="res-grid" style="margin-bottom:34px;">
+        <div class="res-card">
+          <img class="thumb" src="screenshots/01_menu_principal.png" alt="Acceso Oficial a Séneca" onclick="openModal('screenshots/01_menu_principal.png')" style="cursor:zoom-in;">
+          <h4>Acceso Oficial a Séneca</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Portal oficial de entrada a la plataforma Séneca de la Consejería de Desarrollo Educativo.</p>
+          <a href="https://www.juntadeandalucia.es/educacion/seneca" target="_blank">Entrar en Séneca ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/blog_seneca.png" alt="Blog Séneca Profesorado" onclick="openModal('links-thumbs/blog_seneca.png')" style="cursor:zoom-in;">
+          <h4>Blog Séneca Profesorado (Averroes)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Guías paso a paso e infografías oficiales sobre el Cuaderno de Clase, evaluación criterial y horarios.</p>
+          <a href="https://blogsaverroes.juntadeandalucia.es/senecaprofesorado/el-cuaderno-de-clase/" target="_blank">Abrir Blog Séneca ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/eaprendizaje.png" alt="Portal eAprendizaje" onclick="openModal('links-thumbs/eaprendizaje.png')" style="cursor:zoom-in;">
+          <h4>Portal eAprendizaje</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Tutoriales oficiales para programas educativos, TDE (Plan de Actuación Digital) y herramientas docentes.</p>
+          <a href="https://www.juntadeandalucia.es/educacion/eaprendizaje/" target="_blank">Ver Portal eAprendizaje ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/cep_malaga.png" alt="CEP de Málaga" onclick="openModal('links-thumbs/cep_malaga.png')" style="cursor:zoom-in;">
+          <h4>CEP de Málaga (Formación)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Centro del Profesorado de Málaga: cursos, jornadas formativas y recursos provinciales.</p>
+          <a href="https://www.juntadeandalucia.es/educacion/portales/web/cep-malaga" target="_blank">Visitar CEP Málaga ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="screenshots/05_parametros_cuaderno.png" alt="Módulo Séneca-CEP" onclick="openModal('screenshots/05_parametros_cuaderno.png')" style="cursor:zoom-in;">
+          <h4>Módulo Séneca-CEP</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Acceso directo al módulo de inscripción en cursos del CEP, consultas de listados y certificados.</p>
+          <a href="https://www.juntadeandalucia.es/educacion/portales/web/ced/seneca-cep" target="_blank">Ir a Séneca-CEP ↗</a>
+        </div>
+      </div>
+
+      <h3 style="color:var(--teal); font-size:1.55rem; margin:12px 0 14px;">B. Recursos para tus clases de Religión en Málaga (Infantil y Primaria)</h3>
+      <div class="res-grid">
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/unai_quiros.png" alt="Unai Quirós Web Oficial" onclick="openModal('links-thumbs/unai_quiros.png')" style="cursor:zoom-in;">
+          <h4>Unai Quirós · Web Oficial (Málaga)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Cantautor católico y profesor en Málaga: discos, letras, canciones para el Día de la Paz y recursos de aula.</p>
+          <a href="https://unaiquiros.com" target="_blank">Visitar unaiquiros.com ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/unai_youtube.png" alt="Unai Quirós YouTube" onclick="openModal('links-thumbs/unai_youtube.png')" style="cursor:zoom-in;">
+          <h4>Unai Quirós · Canal de YouTube</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Videoclips, cantos para Infantil y Primaria, y vídeos realizados junto a Fano para tus clases.</p>
+          <a href="https://www.youtube.com/@UnaiQuirosOficial" target="_blank">Abrir YouTube de Unai Quirós ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/fano_malaga.png" alt="Dibujos de Fano en Odres Nuevos" onclick="openModal('links-thumbs/fano_malaga.png')" style="cursor:zoom-in;">
+          <h4>Dibujos de Fano (Odres Nuevos)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Ilustraciones semanales de Patxi Velasco Fano para el Evangelio del domingo, Adviento, Cuaresma y Pascua (en color y B/N).</p>
+          <a href="https://odresnuevos.es/evangelio-domingos/" target="_blank">Ver Dibujos de Fano ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/reca_malaga.png" alt="Delegación de Enseñanza Málaga RECA" onclick="openModal('links-thumbs/reca_malaga.png')" style="cursor:zoom-in;">
+          <h4>Delegación de Enseñanza Málaga (RECA)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Portal oficial de la Delegación Diocesana de Enseñanza de Málaga: circulares, avisos y apoyo al profesorado.</p>
+          <a href="https://reca.diocesismalaga.es/wp/" target="_blank">Visitar RECA Málaga ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/diocesis_malaga.png" alt="Diócesis de Málaga Educación" onclick="openModal('links-thumbs/diocesis_malaga.png')" style="cursor:zoom-in;">
+          <h4>Diócesis de Málaga · Educación</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Noticias, encuentros de profesores de Religión, jornadas Innovareli y campañas de matriculación.</p>
+          <a href="https://diocesismalaga.es/" target="_blank">Abrir Diócesis de Málaga ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/aula_de_reli.png" alt="Aula de Reli" onclick="openModal('links-thumbs/aula_de_reli.png')" style="cursor:zoom-in;">
+          <h4>Aula de Reli (LOMLOE y TIC)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Banco de recursos digitales, actividades interactivas y materiales de Religión para Infantil y Primaria.</p>
+          <a href="https://auladereli.es" target="_blank">Visitar Aula de Reli ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/profesorado_religion.png" alt="Blog Profesorado de Religión" onclick="openModal('links-thumbs/profesorado_religion.png')" style="cursor:zoom-in;">
+          <h4>Profesorado de Religión (Blog)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Amplio repositorio de recursos, dinámicas, juegos y materiales de Religión Católica organizados por niveles.</p>
+          <a href="https://profesoradoreligion.blogspot.com/" target="_blank">Visitar Profesorado de Religión ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="screenshots/02_trazabilidad_lomloe.png" alt="Currículo Oficial BOE LOMLOE" onclick="openModal('screenshots/02_trazabilidad_lomloe.png')" style="cursor:zoom-in;">
+          <h4>Currículo Oficial Religión (BOE LOMLOE)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Resolución oficial del BOE con competencias específicas, criterios y saberes básicos de Infantil y Primaria.</p>
+          <a href="https://www.boe.es/boe/dias/2022/06/24/pdfs/BOE-A-2022-10452.pdf" target="_blank">Abrir PDF del BOE ↗</a>
+        </div>
+      </div>
+
+      <h3 style="color:var(--gold); font-size:1.55rem; margin:34px 0 14px;">C. Canciones (3, 6 y 7 años), Animaciones y Juegos de Clase</h3>
+      <div class="res-grid">
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/valivan_youtube.png" alt="Valivan YouTube" onclick="openModal('links-thumbs/valivan_youtube.png')" style="cursor:zoom-in;">
+          <h4>Valivan · La Casita sobre la Roca (YouTube)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Canciones católicas infantiles, parábolas animadas y capítulos completos ideales para 3, 6 y 7 años.</p>
+          <a href="https://www.youtube.com/@valivanmta" target="_blank">Abrir Valivan en YouTube ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/superlibro_videos.png" alt="Superlibro Videos Oficial" onclick="openModal('links-thumbs/superlibro_videos.png')" style="cursor:zoom-in;">
+          <h4>Superlibro · Vídeos y Juegos (Web Oficial)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Episodios animados de la Biblia en HD y juegos interactivos para proyectar en clase de 1º y 2º de Primaria.</p>
+          <a href="https://www.superlibro.tv/videos" target="_blank">Ir a Superlibro.tv ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/superlibro_youtube.png" alt="Superlibro YouTube Español" onclick="openModal('links-thumbs/superlibro_youtube.png')" style="cursor:zoom-in;">
+          <h4>Superlibro · Canal de YouTube en Español</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Historias bíblicas animadas con Luis, Anita y Tuercas, cortos y canciones para el aula.</p>
+          <a href="https://www.youtube.com/@Superlibrola" target="_blank">Abrir Superlibro YouTube ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/wordwall_reli.png" alt="Wordwall Religión Católica" onclick="openModal('links-thumbs/wordwall_reli.png')" style="cursor:zoom-in;">
+          <h4>Wordwall · Juegos de Religión Católica</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Ruletas, laberintos, emparejamientos y cuestionarios interactivos listos para pizarra digital (Infantil y Primaria).</p>
+          <a href="https://wordwall.net/es/community/religi%C3%B3n-cat%C3%B3lica" target="_blank">Jugar en Wordwall ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/educaplay_reli.png" alt="Educaplay" onclick="openModal('links-thumbs/educaplay_reli.png')" style="cursor:zoom-in;">
+          <h4>Educaplay · Actividades Multimedia</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Juegos tipo Froggy Jumps, adivinanzas, mapas interactivos y sopas de letras de Religión Católica.</p>
+          <a href="https://es.educaplay.com/" target="_blank">Explorar Educaplay ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/liveworksheets_reli.png" alt="Liveworksheets" onclick="openModal('links-thumbs/liveworksheets_reli.png')" style="cursor:zoom-in;">
+          <h4>Liveworksheets · Fichas Interactivas</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Fichas digitales autocorregibles de Religión Infantil (3 años) y 1º-2º de Primaria para repasar jugando.</p>
+          <a href="https://es.liveworksheets.com/" target="_blank">Buscar fichas en Liveworksheets ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/lanikai_infantil.png" alt="Proyecto Lanikai Infantil" onclick="openModal('links-thumbs/lanikai_infantil.png')" style="cursor:zoom-in;">
+          <h4>Proyecto Lanikai · Infantil (Vicens Vives)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Recursos, muestras, canciones y actividades de Religión Católica para 3, 4 y 5 años con la mascota Lani.</p>
+          <a href="https://vicensvives.com/es/docentes/educacion-infantil/lanikai/el-proyecto" target="_blank">Ver Lanikai Infantil ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/lanikai_primaria.png" alt="Proyecto Lanikai Primaria" onclick="openModal('links-thumbs/lanikai_primaria.png')" style="cursor:zoom-in;">
+          <h4>Proyecto Lanikai · Primaria (Vicens Vives)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Propuestas competenciales LOMLOE, unidades de muestra y recursos multimedia para 1º y 2º de Primaria con Kai.</p>
+          <a href="https://vicensvives.com/es/docentes/educacion-primaria/lanikai/el-proyecto" target="_blank">Ver Lanikai Primaria ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="img-modal" onclick="this.classList.remove('open')">
+    <img id="modal-img" src="" alt="Vista ampliada">
+  </div>
+
+  <script>
+    function showTab(id, btn) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // 1. SLIDES DATA (De lo general a lo específico)
+    const slides = [
+      {
+        img: 'assets/seneca_hero.jpg',
+        badge: 'Bloque 1 · Visión General',
+        kicker: 'TEMA 1 · VISIÓN GENERAL DE SÉNECA',
+        title: '¿Cómo funciona Séneca bajo la LOMLOE?',
+        bullets: [
+          'Séneca conecta tres capas: Normativa/Currículo → Programación y Situaciones de Aprendizaje → Cuaderno de Clase.',
+          'La nota ya no nace de "exámenes sueltos", sino del grado de desarrollo de los Criterios de Evaluación.',
+          'Para Religión Católica, el currículo LOMLOE (BOE 24/06/2022) ya está integrado en el módulo de Currículo por Competencias.'
+        ],
+        script: '«Bienvenidos a esta clase práctica. Antes de tocar botones en Séneca, debemos entender su lógica: todo parte del currículo LOMLOE, pasa por nuestra programación o Situaciones de Aprendizaje y aterriza en el Cuaderno de Clase.»'
+      },
+      {
+        img: 'screenshots/01_menu_principal.png',
+        badge: 'Captura Real Séneca · Bloque 2',
+        kicker: 'TEMA 2 · MAPA DE NAVEGACIÓN',
+        title: 'Las 2 rutas maestras que usarás todo el curso',
+        bullets: [
+          'Ruta Curricular: Alumnado → Evaluación → Currículo por competencias R.G. LOMLOE.',
+          'Ruta Diaria: Alumnado → Seguimiento académico → Cuaderno de clase.',
+          'Comunicación con familias: iPasen (visibilidad de actividades y citas de tutoría).'
+        ],
+        script: '«En el menú izquierdo de Séneca solo necesitas memorizar dos grandes puertas: Currículo por competencias LOMLOE para planificar, y Cuaderno de clase para tu día a día en el aula.»'
+      },
+      {
+        img: 'assets/seneca_infantil.jpg',
+        badge: 'Bloque 3 · Infantil (3-5 años)',
+        kicker: 'TEMA 3 · RELIGIÓN EN INFANTIL (3, 4 Y 5 AÑOS)',
+        title: 'Evaluación global, cualitativa y observacional',
+        bullets: [
+          'En Infantil no hay notas numéricas (ni exámenes): se valora el progreso global y cualitativo (No iniciado / En proceso / Conseguido).',
+          'En Religión Infantil trabajamos con rutinas, cuentos bíblicos, canciones y observación directa.',
+          'En el Cuaderno puedes usar categorías diarias con escala cualitativa o checks de seguimiento.'
+        ],
+        script: '«Si grabamos clases para Infantil, recuerda explicar que aquí no ponemos un 7 ni un 8. En Religión de 3, 4 y 5 años observamos cómo el niño descubre el entorno, los valores y las historias bíblicas mediante listas de control y escalas cualitativas.»'
+      },
+      {
+        img: 'assets/seneca_primaria.jpg',
+        badge: 'Bloque 4 · 1º y 2º Primaria',
+        kicker: 'TEMA 4 · RELIGIÓN EN 1º Y 2º DE PRIMARIA',
+        title: 'Primer Ciclo: Competencias Específicas y Criterios',
+        bullets: [
+          'En 1º y 2º de Primaria (Primer Ciclo) ya evaluamos por Competencias Específicas (6 competencias en Religión) y Criterios de Evaluación.',
+          'Cada actividad evaluable del cuaderno (ficha, mural, dramatización, diálogo) se vincula a uno o varios criterios.',
+          'El sistema calcula automáticamente la media del criterio según tus Parámetros (aritmética, continua o más alta).'
+        ],
+        script: '«Al pasar a 1º y 2º de Primaria damos el salto a la evaluación criterial. Cuando diseñes una actividad de Religión, por ejemplo un mural sobre la Creación o el cuidado de los demás, la vinculas en Séneca a su criterio exacto.»'
+      },
+      {
+        img: 'assets/seneca_config.jpg',
+        badge: 'Bloque 5 · Configuración',
+        kicker: 'TEMA 5 · CONFIGURAR EL CUADERNO SIN ERRORES',
+        title: 'Parámetros, Categorías y Trazabilidad',
+        bullets: [
+          'Paso 1: En Parámetros, define cómo se calcula la nota de cada criterio (recomendado: evaluación continua o media aritmética).',
+          'Paso 2: Crea Categorías claras (p. ej. "Trabajo de aula", "Proyectos/Murales", "Participación y valores").',
+          'Paso 3: Revisa que los criterios tengan su trazabilidad/evidencia antes de crear actividades.'
+        ],
+        script: '«El error más común al empezar es crear actividades sin haber revisado antes los Parámetros del Cuaderno. Dedica 5 minutos en septiembre a dejar listas tus categorías y tu método de cálculo.»'
+      },
+      {
+        img: 'assets/seneca_recording.jpg',
+        badge: 'Bloque 6 · Grabación de Clases',
+        kicker: 'TEMA 6 · CONSEJOS PARA GRABAR TUS CLASES',
+        title: 'Checklist de grabación segura y profesional',
+        bullets: [
+          'RGPD ante todo: nunca muestres listas con nombres reales de alumnado cuando grabes tu pantalla de Séneca.',
+          'Graba siempre en pestañas de Parámetros, Trazabilidad o Creación de Actividades (como en nuestras capturas).',
+          'Divide tus vídeos en píldoras de 3-5 minutos: 1) Configurar, 2) Crear actividad, 3) Calificar y revisar Visión Global.'
+        ],
+        script: '«Para terminar, cuando grabes tus propias clases o tutoriales sobre Séneca, abre una ventana limpia sin datos personales de alumnos y estructura cada vídeo en un solo objetivo claro.»'
+      }
+    ];
+
+    let currentSlide = 0;
+    function renderSlide() {
+      const s = slides[currentSlide];
+      document.getElementById('slide-img').src = s.img;
+      document.getElementById('slide-badge').textContent = s.badge;
+      document.getElementById('slide-kicker').textContent = s.kicker;
+      document.getElementById('slide-title').textContent = s.title;
+      document.getElementById('slide-bullets').innerHTML = s.bullets.map(b => `<li>${b}</li>`).join('');
+      document.getElementById('slide-script').textContent = s.script;
+      document.getElementById('slide-counter').textContent = `Diapositiva ${currentSlide + 1} / ${slides.length}`;
+      document.getElementById('slide-dots').innerHTML = slides.map((_, i) =>
+        `<button class="btn ${i === currentSlide ? 'btn-primary' : ''}" style="padding:6px 12px;" onclick="goSlide(${i})">${i + 1}</button>`
+      ).join('');
+    }
+    function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; renderSlide(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; renderSlide(); }
+    function goSlide(i) { currentSlide = i; renderSlide(); }
+    renderSlide();
+
+    // 2. STEP BY STEP TUTOR
+    const steps = [
+      {
+        num: 'Paso 1 · Visión General',
+        title: 'Ubicar el módulo en el menú lateral',
+        desc: 'Todo tu trabajo de Religión se reparte entre el menú "Currículo por competencias R.G. LOMLOE" (programación, trazabilidad y SdA) y "Cuaderno de clase" (día a día).',
+        img: 'screenshots/01_menu_principal.png',
+        infantil: 'En Infantil (3-5 años), trabajarás sobre todo con observación diaria y registros cualitativos.',
+        primaria: 'En 1º y 2º de Primaria, usarás ambos menús para vincular tus actividades con los criterios de evaluación.'
+      },
+      {
+        num: 'Paso 2 · Trazabilidad',
+        title: 'Revisar Trazabilidad e Instrumentos',
+        desc: 'Antes de crear actividades, comprueba en Alumnado > Evaluación > Currículo por competencias R.G. LOMLOE > Trazabilidad que están dados de alta los instrumentos de evaluación (observación directa, cuaderno, rúbrica, producto plástico...).',
+        img: 'screenshots/02_trazabilidad_lomloe.png',
+        infantil: 'Prioriza observación directa, asamblea, canciones y producciones plásticas.',
+        primaria: 'Combina observación de aula, cuaderno/fichas, trabajos creativos y pequeños diálogos orales.'
+      },
+      {
+        num: 'Paso 3 · Programación',
+        title: 'Propuesta Pedagógica y Programación Didáctica',
+        desc: 'Aquí se aloja la concreción curricular de Religión Católica (Infantil y Primaria). Verifica que tu materia aparece con sus competencias específicas y criterios ponderados.',
+        img: 'screenshots/03_propuesta_pedagogica.png',
+        infantil: 'Revisa los criterios de las áreas y del currículo propio de Religión Infantil.',
+        primaria: 'Comprueba que los criterios del 1º ciclo (1º y 2º) tienen su peso asignado para que Séneca pueda calcular medias.'
+      },
+      {
+        num: 'Paso 4 · Situaciones de Aprendizaje',
+        title: 'Situaciones de Aprendizaje (SdA)',
+        desc: 'Desde "Mis Situaciones de Aprendizaje" puedes diseñar unidades contextualizadas (ej. "Cuidamos la creación", "La Navidad en familia") y volcar sus actividades directamente al cuaderno.',
+        img: 'screenshots/04_situaciones_aprendizaje.png',
+        infantil: 'Proyectos lúdicos y centros de interés adaptados a 3, 4 y 5 años.',
+        primaria: 'Secuencias didácticas con producto final evaluable ligado a criterios del Primer Ciclo.'
+      },
+      {
+        num: 'Paso 5 · Parámetros del Cuaderno',
+        title: 'Configurar Parámetros del Cuaderno de Clase',
+        desc: 'En Alumnado > Seguimiento académico > Cuaderno de clase > Parámetros, configura tus categorías evaluables y cómo calculará Séneca la nota de cada criterio.',
+        img: 'screenshots/05_parametros_cuaderno.png',
+        infantil: 'Usa categorías diarias de seguimiento cualitativo (sin cálculo numérico).',
+        primaria: 'Elige media aritmética o evaluación continua (última/más alta) según el criterio de tu centro.'
+      },
+      {
+        num: 'Paso 6 · Actividades Evaluables',
+        title: 'Crear y Calificar Actividades Evaluables',
+        desc: 'Desde Cuaderno de clase > Actividades evaluables crea cada tarea, asígnale su categoría, marca los criterios LOMLOE que evalúa y decide si se publica en iPasen para las familias.',
+        img: 'screenshots/06_actividades_evaluables.png',
+        infantil: 'Registra valoraciones cualitativas o checks de logro.',
+        primaria: 'Introduce calificaciones de 1 a 10 (o usa calificación masiva) para alimentar automáticamente la Visión Global.'
+      }
+    ];
+
+    let activeStep = 0;
+    function renderTutor() {
+      document.getElementById('step-list').innerHTML = steps.map((st, i) => `
+        <button class="step-item ${i === activeStep ? 'active' : ''}" onclick="activeStep=${i}; renderTutor();">
+          <small>${st.num}</small>
+          <strong>${st.title}</strong>
+        </button>
+      `).join('');
+
+      const st = steps[activeStep];
+      document.getElementById('tutor-detail').innerHTML = `
+        <span class="slide-kicker">${st.num}</span>
+        <h3 style="font-size:1.85rem; margin:6px 0 10px;">${st.title}</h3>
+        <p style="color:#d6d3cb;">${st.desc}</p>
+        <img class="screenshot" src="${st.img}" alt="${st.title}" onclick="openModal('${st.img}')">
+        <div class="compare-grid">
+          <div class="compare-box">
+            <h4>En Infantil (3, 4 y 5 años)</h4>
+            <p style="font-size:0.9rem; color:var(--muted);">${st.infantil}</p>
+          </div>
+          <div class="compare-box">
+            <h4>En 1º y 2º de Primaria</h4>
+            <p style="font-size:0.9rem; color:var(--muted);">${st.primaria}</p>
+          </div>
+        </div>
+      `;
+    }
+    renderTutor();
+
+    // 3. FLASHCARDS
+    const flashcards = [
+      {
+        img: 'assets/seneca_config.jpg',
+        front: '¿Para qué sirven los Parámetros del Cuaderno?',
+        back: 'Son la base de configuración: definen tus categorías (exámenes, proyectos, observación diaria), el sistema de calificación y si Séneca calcula cada criterio por media aritmética, evaluación continua o nota máxima.'
+      },
+      {
+        img: 'screenshots/05_parametros_cuaderno.png',
+        front: '¿Por qué un "Check" no suma en la nota media?',
+        back: 'En Séneca, los ítems tipo Check (Sí/No o tarea entregada) sirven para control y seguimiento diario, pero NO computan numéricamente en el cálculo automático de criterios.'
+      },
+      {
+        img: 'assets/seneca_infantil.jpg',
+        front: '¿Cómo se evalúa Religión en Infantil dentro de Séneca?',
+        back: 'De forma global, continua y cualitativa (sin notas numéricas del 1 al 10). Se registran observaciones, escalas de logro y evidencias ligadas a las experiencias del aula.'
+      },
+      {
+        img: 'assets/seneca_primaria.jpg',
+        front: '¿Qué cambia en 1º y 2º de Primaria (Primer Ciclo)?',
+        back: 'Ya se evalúa por Competencias Específicas y Criterios de Evaluación del Primer Ciclo. Cada actividad evaluable debe asociarse al menos a un criterio para alimentar la Visión Global.'
+      },
+      {
+        img: 'screenshots/04_situaciones_aprendizaje.png',
+        front: '¿Es obligatorio crear una SdA para usar el Cuaderno?',
+        back: 'No es obligatorio: puedes crear Actividades Evaluables directamente en el Cuaderno de Clase sin crear una Situación de Aprendizaje previa, siempre que las vincules a sus criterios LOMLOE.'
+      },
+      {
+        img: 'screenshots/02_trazabilidad_lomloe.png',
+        front: 'Error típico: "No me aparecen los criterios en la Visión Global"',
+        back: 'Ocurre cuando la actividad se creó sin vincularla a criterios de evaluación, o cuando la materia no tiene configurada su ponderación en Currículo por Competencias / Parámetros.'
+      },
+      {
+        img: 'screenshots/09_secuencia_didactica.png',
+        front: '¿Cómo paso las tareas de una SdA al Cuaderno de Clase?',
+        back: 'Dentro de tu Situación de Aprendizaje, ve a "Secuenciación didáctica / Producto final", marca las actividades evaluables y utiliza la opción de volcado/creación en el Cuaderno para que aparezcan ya vinculadas a sus criterios.'
+      },
+      {
+        img: 'screenshots/06_actividades_evaluables.png',
+        front: '¿Cómo poner notas rápido a toda la clase a la vez?',
+        back: 'Usa la calificación masiva (icono de edición rápida o rellenar columna) dentro de la actividad evaluable: asignas una nota base a todo el grupo y luego ajustas solo los casos particulares.'
+      },
+      {
+        img: 'assets/seneca_config.jpg',
+        front: '¿Media aritmética, evaluación continua o nota máxima?',
+        back: 'En Parámetros del Cuaderno eliges cómo calcula Séneca cada criterio: "Media aritmética" promedia todas las notas; "Evaluación continua" da más peso a las últimas evidencias; "Máxima" toma el mejor logro del alumnado.'
+      },
+      {
+        img: 'screenshots/03_propuesta_pedagogica.png',
+        front: 'Propuesta Pedagógica vs. Programación Didáctica: ¿cuál es mía?',
+        back: 'En Educación Infantil se denomina "Propuesta Pedagógica"; en Educación Primaria (1º y 2º) se denomina "Programación Didáctica". Ambas se consultan en Currículo por competencias R.G. LOMLOE.'
+      },
+      {
+        img: 'assets/seneca_recording.jpg',
+        front: 'Regla de oro (RGPD) al grabar tus clases o tutoriales de Séneca',
+        back: 'Nunca grabes pantallas con nombres reales de alumnado, DNIs o notas individuales. Graba siempre sobre pantallas de Parámetros, Trazabilidad, Creación de Actividades o Concreción Curricular.'
+      },
+      {
+        img: 'screenshots/01_menu_principal.png',
+        front: '¿Dónde activo las Rúbricas en el Cuaderno de Séneca?',
+        back: 'Al configurar una Actividad Evaluable o en los instrumentos de Trazabilidad puedes asociar una rúbrica por niveles de logro para evaluar proyectos, murales o dramatizaciones de Religión.'
+      },
+      {
+        img: 'screenshots/06_actividades_evaluables.png',
+        front: '¿Cómo hago visible una actividad a las familias en iPasen?',
+        back: 'Al crear o editar la Actividad Evaluable en el Cuaderno, marca la casilla de "Publicar / Mostrar a las familias en iPasen" y guarda los cambios.'
+      },
+      {
+        img: 'screenshots/07_repositorio_sda.png',
+        front: '¿Cómo aprovecho el Repositorio sin empezar de cero?',
+        back: 'Filtra por "Religión y Moral Católica" y tu curso (Tres Años, 1º o 2º de Primaria), previsualiza la SdA de otro centro y cópiala a "Mis Situaciones de Aprendizaje" para adaptarla a tu aula.'
+      },
+      {
+        img: 'assets/seneca_hero.jpg',
+        front: '¿Qué reviso antes de cerrar la evaluación del trimestre?',
+        back: 'Entra en Visión Global por Área / Evaluación Criterial, comprueba que todos los criterios trabajados tienen registro y verifica la nota orientativa propuesta antes de firmar actas.'
+      }
+    ];
+
+    document.getElementById('flash-grid').innerHTML = flashcards.map(fc => `
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flash-face flash-front">
+            <img src="${fc.img}" alt="Flashcard visual">
+            <div class="flash-front-body">
+              <h4>${fc.front}</h4>
+              <span class="flash-hint">Haz clic para ver la respuesta ↻</span>
+            </div>
+          </div>
+          <div class="flash-face flash-back">
+            <div>
+              <h4>Respuesta clave</h4>
+              <p>${fc.back}</p>
+            </div>
+            <span class="flash-hint">Haz clic para volver ↻</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // 4. MIND MAPS
+    const mindmaps = {
+      general: {
+        root: 'ARQUITECTURA SÉNECA LOMLOE (De lo general a lo específico)',
+        nodes: [
+          {
+            img: 'screenshots/03_propuesta_pedagogica.png',
+            title: '1. Marco Normativo y Programación',
+            items: ['Currículo Religión LOMLOE (BOE 2022)', 'Competencias Específicas', 'Criterios de Evaluación por ciclo', 'Ponderación de criterios']
+          },
+          {
+            img: 'screenshots/04_situaciones_aprendizaje.png',
+            title: '2. Planificación (Opcional SdA)',
+            items: ['Situaciones de Aprendizaje', 'Trazabilidad e instrumentos', 'Secuencia didáctica', 'Volcado al Cuaderno']
+          },
+          {
+            img: 'screenshots/05_parametros_cuaderno.png',
+            title: '3. Cuaderno de Clase',
+            items: ['Parámetros y cálculo', 'Categorías evaluables', 'Actividades vinculadas a criterios', 'Calificación masiva o individual']
+          },
+          {
+            img: 'screenshots/06_actividades_evaluables.png',
+            title: '4. Evaluación y Familias',
+            items: ['Visión Global por Área', 'Cierre de trimestre', 'Publicación en iPasen', 'Actas y tutorías']
+          }
+        ]
+      },
+      infantil: {
+        root: 'RELIGIÓN EN INFANTIL (3, 4 y 5 años)',
+        nodes: [
+          {
+            img: 'assets/seneca_infantil.jpg',
+            title: 'Enfoque LOMLOE Infantil',
+            items: ['Evaluación global y cualitativa', 'Sin calificación numérica', 'Respeto al ritmo evolutivo', 'Religión integrada en el día a día']
+          },
+          {
+            img: 'screenshots/05_parametros_cuaderno.png',
+            title: 'Configuración en Séneca',
+            items: ['Categoría de observación diaria', 'Escala cualitativa (Iniciado / En proceso / Conseguido)', 'Checks de participación y rutinas']
+          },
+          {
+            img: 'assets/seneca_recording.jpg',
+            title: 'Evidencias para tus clases',
+            items: ['Asamblea y relatos bíblicos', 'Canciones y gestos', 'Dibujos y fichas manipulativas', 'Observación de valores y convivencia']
+          }
+        ]
+      },
+      primaria: {
+        root: 'RELIGIÓN EN 1º Y 2º DE PRIMARIA (Primer Ciclo)',
+        nodes: [
+          {
+            img: 'assets/seneca_primaria.jpg',
+            title: 'Currículo Primer Ciclo',
+            items: ['6 Competencias Específicas de Religión', 'Criterios de evaluación de 1º-2º', 'Saberes básicos adaptados a 6-8 años']
+          },
+          {
+            img: 'screenshots/06_actividades_evaluables.png',
+            title: 'Actividades en el Cuaderno',
+            items: ['Crear actividad numérica o cualitativa', 'Asociar a 1 o más criterios', 'Usar calificación masiva para ahorrar tiempo']
+          },
+          {
+            img: 'screenshots/02_trazabilidad_lomloe.png',
+            title: 'Cierre de Evaluación',
+            items: ['Comprobar Visión Global de criterios', 'Revisar media aritmética o continua', 'Compartir progreso en iPasen']
+          }
+        ]
+      }
+    };
+
+    function renderMindMap(key, btn) {
+      if (btn) {
+        document.querySelectorAll('.mindmap-tabs .btn').forEach(b => b.classList.remove('btn-primary'));
+        btn.classList.add('btn-primary');
+      }
+      const mm = mindmaps[key];
+      document.getElementById('mindmap-board').innerHTML = `
+        <div class="mm-root">${mm.root}</div>
+        <div class="mm-branches">
+          ${mm.nodes.map(n => `
+            <div class="mm-node">
+              <img src="${n.img}" alt="${n.title}" onclick="openModal('${n.img}')" style="cursor:zoom-in;">
+              <div class="mm-node-body">
+                <h4>${n.title}</h4>
+                <ul>${n.items.map(it => `<li>${it}</li>`).join('')}</ul>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+    renderMindMap('general');
+
+    function openModal(src) {
+      document.getElementById('modal-img').src = src;
+      document.getElementById('img-modal').classList.add('open');
+    }
+  </script>
+</body>
+</html>
