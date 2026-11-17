@@ -479,6 +479,7 @@
         <button class="tab-btn" onclick="showTab('recursos', this)">5. NotebookLM &amp; Recursos</button>
         <button class="tab-btn" onclick="showTab('reli-ana', this)">6. Reli Ana (3 Años)</button>
         <button class="tab-btn" onclick="showTab('enlaces', this)">7. Enlaces Útiles</button>
+        <button class="tab-btn" onclick="showTab('acerca', this)">8. Acerca de</button>
       </nav>
     </div>
   </header>
@@ -807,7 +808,43 @@
         </div>
       </div>
     </section>
+
+    <!-- 8. ACERCA DE -->
+    <section id="acerca" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Acerca de</h2>
+          <p>Autoría y propósito educativo de este espacio.</p>
+        </div>
+      </div>
+      <div class="deck-shell">
+        <div class="slide-stage" style="min-height: 360px;">
+          <div class="slide-media">
+            <img src="assets/seneca_hero.jpg" alt="Ana Vergara Rodríguez · Colegio Josefina Aldecoa">
+            <span class="cinematic-badge">Torre de Benagalbón · Málaga</span>
+          </div>
+          <div class="slide-content">
+            <div>
+              <div class="slide-kicker">PROFESORA DE RELIGIÓN CATÓLICA</div>
+              <h3>Ana Vergara Rodríguez</h3>
+              <p style="color:#d6d3cb; font-size:1.02rem; margin-bottom:16px;">
+                Soy <strong>Ana Vergara Rodríguez</strong>, profesora de Religión del <strong>Colegio Josefina Aldecoa</strong> de <strong>Torre de Benagalbón (Málaga)</strong>.
+              </p>
+              <ul class="slide-bullets">
+                <li><strong>Etapas:</strong> Educación Infantil (3, 4 y 5 años) y 1º y 2º de Educación Primaria.</li>
+                <li><strong>Objetivo de esta web:</strong> Reunir en un único lugar una guía práctica y visual de <strong>Séneca LOMLOE</strong>, presentaciones de apoyo, flashcards, mapas mentales y recursos seleccionados para el aula de Religión en Málaga.</li>
+                <li><strong>Colegio:</strong> CEIP Josefina Aldecoa · Torre de Benagalbón (Rincón de la Victoria, Málaga).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer style="border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); font-size: 0.88rem;">
+    <strong>Reli Ana</strong> · Ana Vergara Rodríguez · Profesora de Religión · Colegio Josefina Aldecoa de Torre de Benagalbón (Málaga)
+  </footer>
 
   <div class="modal" id="img-modal" onclick="this.classList.remove('open')">
     <img id="modal-img" src="" alt="Vista ampliada">
