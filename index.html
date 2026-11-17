@@ -598,6 +598,28 @@
           <a href="https://blogsaverroes.juntadeandalucia.es/senecaprofesorado/el-cuaderno-de-clase/" target="_blank">Visitar Averroes Séneca →</a>
         </div>
       </div>
+
+      <div style="margin-top:36px;">
+        <div class="section-header" style="margin-bottom:14px;">
+          <div>
+            <h3 style="font-size:1.75rem; color:var(--gold);">Presentaciones generadas en tu NotebookLM</h3>
+            <p>Visualiza o descarga directamente las presentaciones creadas en NotebookLM Studio sobre Séneca LOMLOE.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="setNlmPdf('presentaciones/Guia_Seneca_LOMLOE_para_Religion.pdf', this)">1. Guía Séneca LOMLOE (SdA)</button>
+            <button class="btn" onclick="setNlmPdf('presentaciones/Evaluacion_Criterial_en_Seneca_LOMLOE.pdf', this)">2. Evaluación Criterial LOMLOE</button>
+            <a id="nlm-pdf-download" class="btn" href="presentaciones/Guia_Seneca_LOMLOE_para_Religion.pdf" target="_blank" style="text-decoration:none;">Abrir / Descargar PDF ↗</a>
+          </div>
+        </div>
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; box-shadow:var(--shadow);">
+          <iframe
+            id="nlm-pdf-frame"
+            src="presentaciones/Guia_Seneca_LOMLOE_para_Religion.pdf"
+            title="Presentación de NotebookLM"
+            style="width:100%; height:76vh; min-height:580px; border:0; display:block; background:#1a1d24;">
+          </iframe>
+        </div>
+      </div>
     </section>
 
     <!-- 6. RELI ANA 3 AÑOS (INCRUSTADA) -->
@@ -764,6 +786,24 @@
           <h4>Proyecto Lanikai · Primaria (Vicens Vives)</h4>
           <p style="color:var(--muted); margin-bottom:12px;">Propuestas competenciales LOMLOE, unidades de muestra y recursos multimedia para 1º y 2º de Primaria con Kai.</p>
           <a href="https://vicensvives.com/es/docentes/educacion-primaria/lanikai/el-proyecto" target="_blank">Ver Lanikai Primaria ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/biblia_ninos.png" alt="La Biblia para Niños" onclick="openModal('links-thumbs/biblia_ninos.png')" style="cursor:zoom-in;">
+          <h4>La Biblia para Niños (Historias Ilustradas)</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Cuentos bíblicos ilustrados gratuitos en español (PDF, audio y libros para colorear) para 3, 6 y 7 años.</p>
+          <a href="https://bibleforchildren.org/languages/spanish/stories.php" target="_blank">Leer y descargar cuentos ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/genially_edu.png" alt="Genially Educación" onclick="openModal('links-thumbs/genially_edu.png')" style="cursor:zoom-in;">
+          <h4>Genially · Plantillas Educativas</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Presentaciones interactivas, juegos tipo escape room y tableros visuales para tus clases de Religión.</p>
+          <a href="https://genially.com/templates/education/" target="_blank">Explorar Genially Educación ↗</a>
+        </div>
+        <div class="res-card">
+          <img class="thumb" src="links-thumbs/conferencia_episcopal.png" alt="Conferencia Episcopal Educación" onclick="openModal('links-thumbs/conferencia_episcopal.png')" style="cursor:zoom-in;">
+          <h4>Conferencia Episcopal · Educación y Cultura</h4>
+          <p style="color:var(--muted); margin-bottom:12px;">Documentos oficiales, normativa sobre Enseñanza Religiosa Escolar y actualidad educativa de la CEE.</p>
+          <a href="https://www.conferenciaepiscopal.es/comisiones/educacion-y-cultura/" target="_blank">Visitar CEE Educación ↗</a>
         </div>
       </div>
     </section>
@@ -1152,6 +1192,13 @@
     function openModal(src) {
       document.getElementById('modal-img').src = src;
       document.getElementById('img-modal').classList.add('open');
+    }
+
+    function setNlmPdf(pdfPath, btn) {
+      document.getElementById('nlm-pdf-frame').src = pdfPath;
+      document.getElementById('nlm-pdf-download').href = pdfPath;
+      btn.parentElement.querySelectorAll('button.btn').forEach(b => b.classList.remove('btn-primary'));
+      btn.classList.add('btn-primary');
     }
   </script>
 </body>
